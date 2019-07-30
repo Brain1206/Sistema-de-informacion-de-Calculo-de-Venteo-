@@ -1,0 +1,34 @@
+<?php 
+$a=mysql_query("SELECT * FROM datos_generales WHERE cte_correo='".$_SESSION['user']."'");
+$b=mysql_fetch_assoc($a);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default" style="background: linear-gradient(to right, rgb(17,134,61) , rgb(126,176,123), white); color: white !important; margin: 0px !important;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <img src="img/protectotank.png" style="width: 275px; height: 55px; float: left; padding-top: 3px; margin-top: 0px" >  
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="btn btn-success" style="padding: 0px !important;"><a href="tanques.php" style="color: white !important;">Tanques de Almacenamiento</a></li>
+      <li class="btn btn-success" style="padding: 0px !important;"><a href="condiciones.php" style="color: white !important;">Condiciones de Operación</a></li>
+      <li class="btn btn-success" style="padding: 0px !important;"><a href="producto.php" style="color: white !important;">Producto</a></li>
+      <?php echo "<td id='colUser'><h4>".$b['cte_correo']."<br>".$b['cte_nombre']."</h4></td>";  ?> 
+      <li class="btn btn-danger" style="padding: 0px !important;"><a href="index.php?cerrar=1" style="color: white !important;">Salir</a></li>
+    </ul>
+  </div>
+</nav>
+
+</body>
+</html>
